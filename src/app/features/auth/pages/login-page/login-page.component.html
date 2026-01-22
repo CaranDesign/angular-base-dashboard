@@ -1,0 +1,36 @@
+ <div class="login-container">
+      <div class="login-box">
+        <h1>Login</h1>
+        
+        <form [formGroup]="form" (ngSubmit)="onSubmit()">
+          <app-input-field
+            formControlName="email"
+            label="Email"
+            type="email"
+            placeholder="your@email.com"
+            [error]="getErrorMessage('email')">
+          </app-input-field>
+
+          <app-input-field
+            formControlName="password"
+            label="Password"
+            type="password"
+            placeholder="••••••••"
+            [error]="getErrorMessage('password')">
+          </app-input-field>
+
+          <app-button
+            label="Login"
+            variant="primary"
+            [isDisabled]="form.invalid || isLoading"
+            [isLoading]="isLoading"
+            (buttonClick)="onSubmit()">
+          </app-button>
+        </form>
+
+        <p class="signup-link">
+          Don't have an account?
+          <a routerLink="/auth/register">Sign up</a>
+        </p>
+      </div>
+    </div>

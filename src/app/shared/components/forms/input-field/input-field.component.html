@@ -1,0 +1,14 @@
+
+    <div class="input-wrapper">
+      <label class="input-label" *ngIf="label">{{ label }}</label>
+      <input
+        class="input-control"
+        [type]="type"
+        [placeholder]="placeholder"
+        [value]="value"
+        [disabled]="isDisabled"
+        (input)="onInput($event)"
+        (blur)="onTouched()" />
+      <span class="input-error" *ngIf="error">{{ error }}</span>
+    </div>
+  

@@ -1,0 +1,30 @@
+<aside class="sidebar">
+   <div class="sidebar-brand">
+      <h1>Dashboard</h1>
+   </div>
+
+   <nav class="sidebar-nav">
+      <ng-container *ngFor="let item of menuItems">
+         <a
+            class="nav-item"
+            [routerLink]="item.route"
+            routerLinkActive="active"
+            *appHasPermission="item.requiredPermission"
+         >
+            <span class="nav-icon">{{ item.icon }}</span>
+            <span class="nav-label">{{ item.label }}</span>
+         </a>
+      </ng-container>
+   </nav>
+
+   <div class="sidebar-footer">
+      <div class="user-info" *ngIf="user">
+         <div class="user-avatar">{{ user.firstName.charAt(0) }}</div>
+         <div class="user-details">
+         <p class="user-name">{{ user.firstName }}</p>
+         <p class="user-email">{{ user.email }}</p>
+         </div>
+      </div>
+      <button class="btn-logout" (click)="onLogout()">Logout</button>
+   </div>
+</aside>

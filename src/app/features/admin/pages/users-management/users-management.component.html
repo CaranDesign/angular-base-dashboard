@@ -1,0 +1,64 @@
+<div class="users-container">
+      <div class="users-header">
+        <h1>Users Management</h1>
+        <app-button
+          label="Add User"
+          variant="primary"
+          (buttonClick)="openCreateUserModal()">
+        </app-button>
+      </div>
+
+      <div class="users-filter">
+        <input
+          type="text"
+          placeholder="Search by name or email"
+          [formControl]="searchControl"
+          class="search-input" />
+      </div>
+
+      <table class="users-table">
+        <thead>
+          <tr>
+            <th>Email</th>
+            <th>Name</th>
+            <th>Roles</th>
+            <th>Status</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let user of items">
+            <td>{{ user.email }}</td>
+            <td>{{ user.firstName }} {{ user.lastName }}</td>
+            <td>
+              <span *ngFor="let role of user.roles" class="role-badge">
+                {{ role.name }}
+              </span>
+            </td>
+            <td>
+              <span [ngClass]="user.isActive ? 'status-active' : 'status-inactive'">
+                {{ user.isActive ? 'Active' : 'Inactive' }}
+              </span>
+            </td>
+            <td class="action-buttons">
+              <button (click)="editUser(user)" class="btn-small">Edit</button>
+              <button (click)="deleteUser(user)" class="btn-small btn-danger">Delete</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="pagination">
+        <button
+          [disabled]="!hasPrevPage"
+          (click)="prevPage()">
+          Previous
+        </button>
+        <span>Page {{ pagination.page }} of {{ totalPages }}</span>
+        <button
+          [disabled]="!hasNextPage"
+          (click)="nextPage()">
+          Next
+        </button>
+      </div>
+    </div>
