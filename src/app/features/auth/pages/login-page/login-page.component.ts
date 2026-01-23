@@ -1,13 +1,24 @@
-// features/auth/pages/login-page/login-page.component.ts
-import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { AuthService } from '../../../../core/services/auth.service';
+
+import { InputFieldComponent } from '../../../../shared/components/forms/input-field/input-field.component';
 import { PermissionService } from '../../../../core/services/permission.service';
+import { AuthService } from '../../../../core/services/auth.service';
+import { ButtonComponent } from '../../../../shared/components/common/button/button.component';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-login-page',
   templateUrl: './login-page.component.html',
+  standalone:true,
+  imports: [
+    InputFieldComponent,
+    ReactiveFormsModule,
+    ButtonComponent,
+    CommonModule,
+  ],
   styleUrls: ['./login-page.component.scss']
 })
 export class LoginPageComponent implements OnInit {
@@ -22,6 +33,7 @@ export class LoginPageComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    console.log("Login Page init")
     this.initializeForm();
   }
 

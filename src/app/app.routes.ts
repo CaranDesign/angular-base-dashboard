@@ -1,19 +1,16 @@
-import { RouterModule, Routes } from '@angular/router';
+import { Routes } from '@angular/router';
 import { AuthGuard } from './core/guards/auth.guard';
-import { NgModule } from '@angular/core';
-
-import { AccessDeniedComponent } from './features/dashboard/pages/access-denied/access-denied.component';
-import { MainLayoutComponent } from './shared/components/layout/main-layout/main-layout.component';
-import { NotFoundComponent } from './features/dashboard/pages/not-found/not-found.component';
 import { PermissionGuard } from './core/guards/permission.guard';
+import { LoginPageComponent } from './features/auth/pages/login-page/login-page.component';
+import { RegisterPageComponent } from './features/auth/pages/register-page/register-page.component';
+import { AccessDeniedComponent } from './features/dashboard/pages/access-denied/access-denied.component';
+import { NotFoundComponent } from './features/dashboard/pages/not-found/not-found.component';
+import { MainLayoutComponent } from './shared/components/layout/main-layout/main-layout.component';
 
-const routes: Routes = [
-  {
-    path: 'auth',
-      loadChildren: () =>
-       //this loader will upload all the sub routes of authModule in /auth/pages
-      import('./features/auth/auth.module').then(m => m.AuthModule)
-  },
+export const routes: Routes = [
+  { path: 'auth/login', component: LoginPageComponent },
+  { path: 'auth/register', component: RegisterPageComponent },
+  
   {
     path: '',
     component: MainLayoutComponent,
@@ -45,18 +42,6 @@ const routes: Routes = [
       }
     ]
   },
-  {
-    path: 'access-denied',
-    component: AccessDeniedComponent
-  },
-  {
-    path: '**',
-    component: NotFoundComponent
-  }
+  { path: 'access-denied', component: AccessDeniedComponent },
+  { path: '**', component: NotFoundComponent }
 ];
-
-@NgModule({
-  imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
-})
-export class AppRoutingModule {}

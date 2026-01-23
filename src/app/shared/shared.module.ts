@@ -14,7 +14,12 @@ import { HasPermissionDirective } from './directives/has-permission.directive';
 
 // Pipes
 
-const DECLARATIONS = [
+const IMPORTS = [
+  CommonModule,
+  ReactiveFormsModule,
+  FormsModule,
+
+
   // Components
   ButtonComponent,
   InputFieldComponent,
@@ -28,15 +33,8 @@ const DECLARATIONS = [
   /* SafeHtmlPipe */
 ];
 
-const IMPORTS = [
-  CommonModule,
-  ReactiveFormsModule,
-  FormsModule
-];
-
 @NgModule({
-  declarations: [DECLARATIONS],
   imports: [IMPORTS],
-  exports: [DECLARATIONS, IMPORTS] // export all for feature modules
+  exports: [IMPORTS] // export all for feature modules
 })
 export class SharedModule {}
