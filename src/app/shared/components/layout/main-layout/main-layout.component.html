@@ -1,11 +1,14 @@
 <mat-sidenav-container class="sidenav-container">
-  <mat-sidenav #drawer mode="side" opened>
+
+  <mat-sidenav #drawer mode="side" mode="side" [opened]="(sidebarOpen$ | async)">
     <app-sidebar></app-sidebar>
   </mat-sidenav>
 
   <mat-sidenav-content>
 
     <app-header/>
+    
     <router-outlet/>
+  
   </mat-sidenav-content>
 </mat-sidenav-container>

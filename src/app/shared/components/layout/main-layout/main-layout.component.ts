@@ -1,3 +1,4 @@
+import { SidebarService } from './../../../../core/services/layout.service';
 import { Router, RouterOutlet } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { AsyncPipe } from '@angular/common';
@@ -22,17 +23,21 @@ import { User } from '../../../../core/models/user.model';
   styleUrls: ['./main-layout.component.scss']
 })
 export class MainLayoutComponent implements OnInit {
+  
   currentUser$: Observable<User | null>;
-
+  sidebarOpen$: Observable<boolean>;
+  
   constructor(
     private authService: AuthService,
-    private router: Router
+    private router: Router,
+    private sidebarOpen: SidebarService
   ) {
     this.currentUser$ = this.authService.currentUser$;
+    this.sidebarOpen$ = this.sidebarOpen.sidebarOpen$;
   }
 
   ngOnInit(): void {}
-
+  
   onLogout(): void {
     this.authService.logout();
     this.router.navigate(['/auth/login']);
