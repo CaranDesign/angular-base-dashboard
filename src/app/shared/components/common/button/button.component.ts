@@ -1,16 +1,21 @@
 // button.component.ts
 import { CommonModule } from '@angular/common';
 import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { MaterialModule } from '../../../material/material/material.module';
 
 @Component({
   selector: 'app-button',
-  imports:[CommonModule],
+  imports: [
+    MaterialModule,
+    CommonModule,
+  ],
   templateUrl: `./button.component.html`,
   styleUrls: ['./button.component.scss']
 })
 export class ButtonComponent {
   
-  @Input() label: string = 'Click me';
+  @Input() icon?: string; 
+  @Input() label?: string;
   @Input() variant: 'primary' | 'secondary' | 'danger' = 'primary';
   @Input() isDisabled: boolean = false;
   @Input() isLoading: boolean = false;

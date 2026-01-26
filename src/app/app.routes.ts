@@ -19,6 +19,12 @@ export const routes: Routes = [
       {
         path: 'dashboard',
         loadChildren: () =>
+          
+          /* 
+           * all sub- routes are declared and imported in main module.ts file 
+           * check dashboard.module.ts for seeing the sub routes such as /dashboard/home or /dashboard/analytics
+          */
+          
           import('./features/dashboard/dashboard.module')
             .then(m => m.DashboardModule)
       },

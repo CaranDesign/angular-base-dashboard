@@ -1,9 +1,10 @@
-import { BehaviorSubject, Observable } from 'rxjs';
+import { BehaviorSubject, Observable, of } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { tap, map } from 'rxjs/operators';
 
 import { User, UserLoginRequest, UserLoginResponse } from '../models/user.model';
+import { MOCK_LOGIN_RESPONSE } from '../../mock/mock-data';
 
 @Injectable({
   providedIn: 'root'
@@ -35,21 +36,21 @@ export class AuthService {
 
   // Login: send credential, get token e user
   login(credentials: UserLoginRequest): Observable<User> {
-    return this.http.post<UserLoginResponse>('/api/auth/login', credentials)
-      .pipe(
-        tap(response => {
-          // save token in local storage, tap method is useful for executing code whitout manipulate the data
-          this.setToken(response.token);
-          this.setRefreshToken(response.refreshToken);
-          // notify to the subscriber that user is logged in
-          this.currentUserSubject$.next(response.user);
-          this.isAuthenticatedSubject$.next(true);
-        }),
-        // return only user, map method transform response and give (in this case) only the user
-        map(response => response.user)
-      );
-  }
+    console.log('[MOCK LOGIN]', credentials);
 
+    return of(MOCK_LOGIN_RESPONSE).pipe(
+      tap((response: UserLoginResponse) => {
+        // esattamente come la versione reale
+        this.setToken(response.token);
+        this.setRefreshToken(response.refreshToken);
+
+        this.currentUserSubject$.next(response.user);
+        this.isAuthenticatedSubject$.next(true);
+      }),
+      map(response => response.user)
+    );
+  }
+  
   // Register
   register(userData: any): Observable<User> {
     return this.http.post<UserLoginResponse>('/api/auth/register', userData)

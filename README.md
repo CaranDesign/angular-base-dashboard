@@ -13,6 +13,12 @@ This project provides a **complete architecture** for building modern Angular da
 /environments folder is excluded from .gitignore just for first commit, 
 DO NOT FORGOT TO EXCLUDE ENVIRONMENT VARIABLES FROM GITIGNORE 
 
+
+As you can see with the structure folder below, this project is FEATURE based, so all the routes are aggregate by their feature
+in this way we can have several page for each feature (such as user-profile-edit, user-profile-share etc...) without having a long
+list of pages spreaded in page/ main folder
+for scalable project this is an approach that i mostly appriciate.
+
 ---
 
 ## ✨ Features
@@ -184,25 +190,31 @@ ng serve
 ```txt
 src/
 ├── app/
-│   ├── core/                          # Singleton services, guards, interceptors and models (app-wide)
+│   ├── core/                          # Singleton services, guards, interceptors and models (app-wide) and all components that dosen't are releated to DOM
 │   │   ├── services/
 │   │   │   ├── auth.service.ts        # Authentication logic (login/logout, token handling, current user state)
 │   │   │   ├── user.service.ts        # User management calls (CRUD users, user details, etc.)
 │   │   │   ├── permission.service.ts  # Roles & permissions logic (RBAC), permission checks, in-memory cache
 │   │   │   └── api.service.ts         # Central HTTP wrapper (optional) to standardize API calls and responses
+│   │   │
+│   │   ├── constants/                 # We find all the constants shared in the project
+│   │   │   ├── globals.constants.ts      # Such as endpoint constants
+│   │   │   ├── validations.constants.ts  # Or validation messages for inputs
+│   │   │   ├── messages.constants.ts     # Or alert and toast warnings error and others
 │   │   ├── guards/
 │   │   │   ├── auth.guard.ts          # Protect routes for authenticated users only
 │   │   │   └── permission.guard.ts    # Protect routes based on permissions / roles
 │   │   ├── interceptors/
 │   │   │   ├── auth.interceptor.ts    # Automatically adds auth token (JWT) to outgoing HTTP requests
 │   │   │   └── error.interceptor.ts   # Central HTTP error handling (401/403/500) + optional redirects/toasts
-│   │   ├── models/
+│   │   ├
+│   │   ├── models/               # Here models can also be divided in different folders such as /classes /interfaces
 │   │   │   ├── user.model.ts          # Interfaces for User entity (id, email, roles, etc.)
 │   │   │   ├── permission.model.ts    # Interfaces for PermissionKey, Permission, Role, etc.
 │   │   │   └── api.model.ts           # Common API response models (pagination, response wrapper, errors)
 │   │   └── core.module.ts             # Optional legacy NgModule export (only if using NgModules)
 │   │
-│   ├── shared/                        # Reusable UI components, directives, pipes, styles (no business logic)
+│   ├── shared/                        # Reusable UI components, directives, pipes, styles (no business logic) and all stuff connected to DOM
 │   │   ├── components/
 │   │   │   ├── layout/                # Core application layout components (shell)
 │   │   │   │   ├── main-layout/
@@ -295,16 +307,38 @@ src/
 │   ├── app.route.ts                    # App routes configuration (can be renamed to app.routes.ts)
 │   └── app.ts                          # Root component (AppComponent)
 │
-├── environments/
+├── environments/                 # Here you can set all you env. variables for different environment, by default we have .ts and .development.ts
 │   ├── environment.ts                  # Default environment values
 │   ├── environment.prod.ts             # Production environment values
-│   └── environment.staging.ts          # Staging environment values
+│   ├── environment.staging.ts          # Staging environment values
+│   └── environment.development.ts      # Development environment values
 │
 └── assets/
     ├── icons/                          # App icons (SVG, PNG, etc.)
     ├── images/                         # Static images
     └── styles/                         # Extra static styles (optional)
 ```
+
+🚫 REMEMBER if you use different environment to fix angular.json replacement of environment: 
+
+basically andular switch between thoose two declared environments depending on which command we run 
+
+```bash
+ng serve --configuration=development
+```
+
+or
+```bash
+ng serve --configuration=production
+```
+
+"fileReplacements": [
+    {
+      "replace": "src/environments/environment.ts",
+      "with": "src/environments/environment.development.ts"
+    }
+  ]
+
 
 
 ### Folder Meanings

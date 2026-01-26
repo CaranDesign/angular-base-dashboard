@@ -11,6 +11,7 @@ import { ButtonComponent } from './components/common/button/button.component';
 
 // Directives
 import { HasPermissionDirective } from './directives/has-permission.directive';
+import { MaterialModule } from './material/material/material.module';
 
 // Pipes
 
@@ -18,7 +19,7 @@ const IMPORTS = [
   CommonModule,
   ReactiveFormsModule,
   FormsModule,
-
+  MaterialModule,
 
   // Components
   ButtonComponent,

@@ -1,9 +1,11 @@
 // input-field.component.ts
+import { CommonModule } from '@angular/common';
 import { Component, Input, Output, EventEmitter, forwardRef } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 
 @Component({
   selector: 'app-input-field',
+  imports:[CommonModule],
   templateUrl: `./input-field.component.html`,
   styleUrls: ['./input-field.component.scss'],
   providers: [
@@ -33,11 +35,11 @@ export class InputFieldComponent implements ControlValueAccessor {
   */
 
   
-  @Input() label: string = '';
-  @Input() type: string = 'text';
-  @Input() placeholder: string = '';
+  @Input() label: string        = '';
+  @Input() type: string         = 'text';
+  @Input() placeholder: string  = '';
   @Input() error: string | null = null;
-  @Input() isDisabled: boolean = false;
+  @Input() isDisabled: boolean  = false;
 
   value: any;
   onChange: any = () => {};

@@ -10,11 +10,10 @@ import { SharedModule } from '../../shared/shared.module';
   declarations: [
   ],
   imports: [
-    
-    LoginPageComponent,
     RegisterPageComponent,
-    CommonModule,
     ReactiveFormsModule,
+    LoginPageComponent,
+    CommonModule,
     SharedModule,
   ]
 })

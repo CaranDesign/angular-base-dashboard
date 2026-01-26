@@ -1,13 +1,24 @@
-// shared/components/layout/main-layout/main-layout.component.ts
+import { Router, RouterOutlet } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { AsyncPipe } from '@angular/common';
 import { Observable } from 'rxjs';
-import { User } from '../../../../core/services/user.service';
+
+import { MaterialModule } from '../../../material/material/material.module';
 import { AuthService } from '../../../../core/services/auth.service';
+import { SidebarComponent } from '../sidebar/sidebar.component';
+import { HeaderComponent } from '../header/header.component';
+import { User } from '../../../../core/models/user.model';
 
 @Component({
   selector: 'app-main-layout',
-  template: './main-layout.component.html',
+  imports: [
+    SidebarComponent,
+    HeaderComponent,
+    MaterialModule, 
+    RouterOutlet,
+    AsyncPipe,
+  ],
+  templateUrl: './main-layout.component.html',
   styleUrls: ['./main-layout.component.scss']
 })
 export class MainLayoutComponent implements OnInit {
