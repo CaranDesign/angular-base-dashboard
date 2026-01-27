@@ -1,0 +1,11 @@
+<ng-container *ngFor="let item of menuItems">
+   <ng-container *appHasPermission="item.requiredPermission ?? []">
+     <mat-list>
+         <app-primary-btn 
+            label="{{ item.label }}"
+            icon="{{ item.icon }}"
+            [routerLink]="item.route"
+         />
+     </mat-list>
+   </ng-container>
+</ng-container>

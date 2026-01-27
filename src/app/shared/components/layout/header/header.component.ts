@@ -15,7 +15,9 @@ import { SidebarService } from '../../../../core/services/layout.service';
 })
 export class HeaderComponent {
   
-  constructor(private sidebarService: SidebarService){}
+  constructor(
+    private sidebarService: SidebarService
+  ) { }
   
   
   onToggleClick(): void {

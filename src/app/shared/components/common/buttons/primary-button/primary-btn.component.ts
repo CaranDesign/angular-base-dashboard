@@ -1,18 +1,18 @@
-// button.component.ts
-import { CommonModule } from '@angular/common';
 import { Component, Input, Output, EventEmitter } from '@angular/core';
-import { MaterialModule } from '../../../material/material/material.module';
+import { CommonModule } from '@angular/common';
+
+import { MaterialModule } from '../../../../material/material/material.module';
 
 @Component({
-  selector: 'app-button',
+  selector: 'app-primary-btn',
   imports: [
     MaterialModule,
     CommonModule,
   ],
-  templateUrl: `./button.component.html`,
-  styleUrls: ['./button.component.scss']
+  templateUrl: `./primary-btn.component.html`,
+  styleUrls: ['./primary-btn.component.scss']
 })
-export class ButtonComponent {
+export class BtnPrimary {
   
   @Input() icon?: string; 
   @Input() label?: string;

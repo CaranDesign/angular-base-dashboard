@@ -9,8 +9,8 @@ import { MatCardModule } from '@angular/material/card';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
-import { MatSidenav, MatSidenavContainer, MatSidenavContent } from '@angular/material/sidenav';
-import { MatNavList } from '@angular/material/list';
+import { MatDrawer, MatDrawerContainer, MatSidenav, MatSidenavContainer, MatSidenavContent } from '@angular/material/sidenav';
+import { MatList, MatNavList } from '@angular/material/list';
 
 /**
  * Centralized Angular Material imports
@@ -27,10 +27,13 @@ const MATERIAL_MODULES = [
   MatToolbarModule,
   MatSnackBarModule,
   MatProgressSpinnerModule,
+  MatDrawerContainer,
+  MatDrawer,
   MatSidenavContainer,
   MatSidenavContent,
   MatSidenav,
   MatNavList,
+  MatList,
   MatIcon,
 ];
 

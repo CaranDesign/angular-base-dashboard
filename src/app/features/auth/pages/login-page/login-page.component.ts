@@ -1,14 +1,13 @@
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
 
+import { BtnPrimary } from '../../../../shared/components/common/buttons/primary-button/primary-btn.component';
 import { InputFieldComponent } from '../../../../shared/components/forms/input-field/input-field.component';
 import { PermissionService } from '../../../../core/services/permission.service';
 import { AuthService } from '../../../../core/services/auth.service';
-import { ButtonComponent } from '../../../../shared/components/common/button/button.component';
-import { CommonModule } from '@angular/common';
-
 @Component({
   selector: 'app-login-page',
   templateUrl: './login-page.component.html',
@@ -16,7 +15,7 @@ import { CommonModule } from '@angular/common';
   imports: [
     InputFieldComponent,
     ReactiveFormsModule,
-    ButtonComponent,
+    BtnPrimary,
     CommonModule,
   ],
   styleUrls: ['./login-page.component.scss']
