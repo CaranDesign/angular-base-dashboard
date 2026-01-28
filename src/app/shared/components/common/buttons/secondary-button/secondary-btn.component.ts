@@ -1,22 +1,20 @@
-import { Component, Input, Output, EventEmitter, input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { MaterialModule } from '../../../../material/material.module';
 import { CommonModule } from '@angular/common';
 
-import { MaterialModule } from '../../../../material/material.module';
-
 @Component({
-  selector: 'app-primary-btn',
+  selector: 'app-secondary-btn',
   imports: [
     MaterialModule,
     CommonModule,
-  ],
-  templateUrl: `./primary-btn.component.html`,
-  styleUrls: ['./primary-btn.component.scss']
+  ],  
+  templateUrl: './secondary-btn.component.html',
+  styleUrl: './secondary-btn.component.css',
 })
-export class BtnPrimary {
-  
+export class BtnSecondary {
   @Input() icon?: string; 
   @Input() label?: string;
-  @Input() variant: 'primary' | 'secondary' | 'danger' = 'primary';
+  @Input() variant: 'primary' | 'secondary' | 'danger' = 'secondary';
   @Input() isDisabled: boolean = false;
   @Input() isLoading: boolean = false;
   @Input() class: string = '';
