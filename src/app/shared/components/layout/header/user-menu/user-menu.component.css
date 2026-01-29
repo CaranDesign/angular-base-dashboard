@@ -1,0 +1,33 @@
+.avatar-image {
+  background-image: url('https://api.dicebear.com/9.x/avataaars-neutral/svg?seed=Avery&eyebrows=defaultNatural,flatNatural,upDownNatural&eyes=side,squint,surprised,default&mouth=default') !important;
+  background-size: cover;
+}
+.db-user-menu-name{
+  font-size: 14px;
+}
+.db-user-menu-email{
+  font-size: 10px !important;
+}
+.db-user-menu-small-btn{
+  margin-left: -5px;
+}
+.db-user-menu-item {
+  height: 20px !important;
+  display: flex !important;
+  align-items: center !important;
+  padding-left: unset !important;
+  padding-right: unset !important;
+  min-height: unset;
+
+  span{
+    font-size: 14px !important;
+  }
+  mat-icon{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 15px !important;
+    margin-right: 0px;
+    opacity: 0.7;
+  }
+}

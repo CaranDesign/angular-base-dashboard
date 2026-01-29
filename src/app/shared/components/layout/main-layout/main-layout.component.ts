@@ -4,7 +4,7 @@ import { Component, OnInit } from '@angular/core';
 import { AsyncPipe } from '@angular/common';
 import { Observable } from 'rxjs';
 
-import { MaterialModule } from '../../../material/material/material.module';
+import { MaterialModule } from '../../../material/material.module';
 import { AuthService } from '../../../../core/services/auth.service';
 import { SidebarComponent } from '../sidebar/sidebar.component';
 import { HeaderComponent } from '../header/header.component';

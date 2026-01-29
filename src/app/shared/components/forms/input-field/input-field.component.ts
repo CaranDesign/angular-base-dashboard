@@ -1,11 +1,15 @@
-// input-field.component.ts
 import { CommonModule } from '@angular/common';
-import { Component, Input, Output, EventEmitter, forwardRef } from '@angular/core';
+import { Component, Input, forwardRef } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
+
+import { MaterialModule } from '../../../material/material.module';
 
 @Component({
   selector: 'app-input-field',
-  imports:[CommonModule],
+  imports: [
+    CommonModule,
+    MaterialModule,
+  ],
   templateUrl: `./input-field.component.html`,
   styleUrls: ['./input-field.component.scss'],
   providers: [
@@ -38,6 +42,7 @@ export class InputFieldComponent implements ControlValueAccessor {
   @Input() label: string        = '';
   @Input() type: string         = 'text';
   @Input() placeholder: string  = '';
+  @Input() class: string        = '';
   @Input() error: string | null = null;
   @Input() isDisabled: boolean  = false;
 
@@ -65,5 +70,11 @@ export class InputFieldComponent implements ControlValueAccessor {
 
   setDisabledState(isDisabled: boolean): void {
     this.isDisabled = isDisabled;
+  }
+
+  get componentClasses(): string[] {
+    return [
+      `${this.class}`
+    ]
   }
 }

@@ -197,7 +197,9 @@ src/
 │   │   │   ├── permission.service.ts  # Roles & permissions logic (RBAC), permission checks, in-memory cache
 │   │   │   └── api.service.ts         # Central HTTP wrapper (optional) to standardize API calls and responses
 │   │   │
-│   │   ├── constants/                 # We find all the constants shared in the project
+│   │   ├── validators/                # Custom validators functions for input forms
+│   │   │
+│   │   ├── constants/                 # There's all the constants shared in the project
 │   │   │   ├── globals.constants.ts      # Such as endpoint constants
 │   │   │   ├── validations.constants.ts  # Or validation messages for inputs
 │   │   │   ├── messages.constants.ts     # Or alert and toast warnings error and others

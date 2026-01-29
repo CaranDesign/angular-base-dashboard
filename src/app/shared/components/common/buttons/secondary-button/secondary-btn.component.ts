@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { MaterialModule } from '../../../../material/material.module';
 import { CommonModule } from '@angular/common';
+import { ButtonStyle } from '../../../../../core/models/layout.model';
 
 @Component({
   selector: 'app-secondary-btn',
@@ -15,6 +16,7 @@ export class BtnSecondary {
   @Input() icon?: string; 
   @Input() label?: string;
   @Input() variant: 'primary' | 'secondary' | 'danger' = 'secondary';
+  @Input() btnStyle: ButtonStyle = 'tonal';
   @Input() isDisabled: boolean = false;
   @Input() isLoading: boolean = false;
   @Input() class: string = '';

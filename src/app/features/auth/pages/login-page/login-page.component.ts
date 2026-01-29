@@ -1,12 +1,13 @@
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router, RouterModule } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Router } from '@angular/router';
 
 import { BtnPrimary } from '../../../../shared/components/common/buttons/primary-button/primary-btn.component';
 import { InputFieldComponent } from '../../../../shared/components/forms/input-field/input-field.component';
 import { PermissionService } from '../../../../core/services/permission.service';
+import { MaterialModule } from '../../../../shared/material/material.module';
 import { AuthService } from '../../../../core/services/auth.service';
 @Component({
   selector: 'app-login-page',
@@ -15,8 +16,10 @@ import { AuthService } from '../../../../core/services/auth.service';
   imports: [
     InputFieldComponent,
     ReactiveFormsModule,
-    BtnPrimary,
+    MaterialModule,
+    RouterModule,
     CommonModule,
+    BtnPrimary,
   ],
   styleUrls: ['./login-page.component.scss']
 })

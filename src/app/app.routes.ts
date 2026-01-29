@@ -1,11 +1,12 @@
 import { Routes } from '@angular/router';
-import { AuthGuard } from './core/guards/auth.guard';
-import { PermissionGuard } from './core/guards/permission.guard';
-import { LoginPageComponent } from './features/auth/pages/login-page/login-page.component';
-import { RegisterPageComponent } from './features/auth/pages/register-page/register-page.component';
+
 import { AccessDeniedComponent } from './features/dashboard/pages/access-denied/access-denied.component';
-import { NotFoundComponent } from './features/dashboard/pages/not-found/not-found.component';
+import { RegisterPageComponent } from './features/auth/pages/register-page/register-page.component';
 import { MainLayoutComponent } from './shared/components/layout/main-layout/main-layout.component';
+import { NotFoundComponent } from './features/dashboard/pages/not-found/not-found.component';
+import { LoginPageComponent } from './features/auth/pages/login-page/login-page.component';
+import { PermissionGuard } from './core/guards/permission.guard';
+import { AuthGuard } from './core/guards/auth.guard';
 
 export const routes: Routes = [
   { path: 'auth/login', component: LoginPageComponent },

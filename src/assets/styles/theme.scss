@@ -1,0 +1,10 @@
+@use '@angular/material' as mat;
+@use 'themes/light' as *;
+@use 'themes/dark' as *;
+
+@include mat.core(); // Abilita Material
+
+/* Rimuovi il tema globale su html */
+html {
+  color-scheme: light dark; // Fallback per preferenza sistema
+}

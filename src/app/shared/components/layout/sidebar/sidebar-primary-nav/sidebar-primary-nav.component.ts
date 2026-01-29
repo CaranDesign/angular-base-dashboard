@@ -2,20 +2,14 @@ import { Router, RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 
-import { BtnPrimary } from '../../../common/buttons/primary-button/primary-btn.component';
 import { HasPermissionDirective } from '../../../../directives/has-permission.directive';
 import { PermissionService } from '../../../../../core/services/permission.service';
-import { MaterialModule } from '../../../../material/material/material.module';
-import { PermissionKey } from '../../../../../core/models/permission.model';
+import { BtnText } from '../../../common/buttons/text-button/text-btn.component';
+import { MaterialModule } from '../../../../material/material.module';
+import { MenuItem } from '../../../../../core/models/layout.model';
+import { BtnMedium } from '../../../common/buttons/medium-button/medium-btn.component';
 
 
-
-interface MenuItem {
-  label: string;
-  route: string;
-  icon: string;
-  requiredPermission?: PermissionKey[];
-}
 
 @Component({
   selector: 'app-sidebar-primary-nav',
@@ -25,7 +19,8 @@ interface MenuItem {
     MaterialModule,
     CommonModule,
     RouterModule,
-    BtnPrimary,
+    BtnText,
+    BtnMedium,
   ],
   templateUrl: './sidebar-primary-nav.component.html',
   styleUrl: './sidebar-primary-nav.component.css',

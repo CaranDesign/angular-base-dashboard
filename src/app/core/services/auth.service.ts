@@ -5,6 +5,7 @@ import { tap, map } from 'rxjs/operators';
 
 import { User, UserLoginRequest, UserLoginResponse } from '../models/user.model';
 import { MOCK_LOGIN_RESPONSE } from '../../mock/mock-data';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -21,7 +22,10 @@ export class AuthService {
   private readonly TOKEN_KEY = 'auth_token';
   private readonly REFRESH_TOKEN_KEY = 'refresh_token';
 
-  constructor(private http: HttpClient) {
+  constructor(
+    private http: HttpClient,
+    private router: Router
+  ) {
     this.initializeAuth();
   }
 
@@ -71,6 +75,7 @@ export class AuthService {
     this.removeRefreshToken();
     this.currentUserSubject$.next(null);
     this.isAuthenticatedSubject$.next(false);
+    this.router.navigate(['/auth/login']);
   }
 
   // Getter for obtain current user (synchronously)

@@ -1,0 +1,10 @@
+.db-icon-btn{
+   width: 30px;
+   height: 30px;
+   min-width: unset;
+   
+   mat-icon{
+      margin: 0px;
+   }
+   padding: 0px !important;
+}

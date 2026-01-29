@@ -1,21 +1,20 @@
 <mat-toolbar>
-  <div class="flex w-full justify-between items-center">
+  <div class="flex w-full justify-between items-center overflow-scroll">
 
-    <div class="flex items-center">
+    <div class="flex items-center gap-2">
       <button (click)="onToggleClick()" matIconButton aria-label="Example icon-button with menu icon">
         <mat-icon>menu</mat-icon>
       </button>
   
-      <span>My App</span>
+      <app-icon-btn icon="add"/>
     </div>
 
-    <div>
-      <button matIconButton class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
-        <mat-icon>favorite</mat-icon>
+    <div class="flex items-center gap-2">
+      <app-theme-toggle/>
+      <button  matIconButton>
+        <mat-icon>help</mat-icon>
       </button>
-      <button matIconButton class="example-icon" aria-label="Example icon-button with share icon">
-        <mat-icon>share</mat-icon>
-      </button>
+      <app-user-menu/>
     </div>
   </div>
 </mat-toolbar>

@@ -1,0 +1,58 @@
+<button matIconButton [matMenuTriggerFor]="userMenu" class="flex items-center">
+   <div mat-card-avatar  class="avatar-image size-6 rounded-full"></div>
+</button>
+
+<mat-menu #userMenu="matMenu" class="db-user-menu db-float-menu" >
+ <div class="px-2">
+
+    <!-- Avatar area -->
+    <div class="flex gap-2 items-center">
+      <div mat-card-avatar  class="avatar-image size-10 rounded-full"></div>
+      <div class="flex flex-col">
+          <div class="db-user-menu-name">John Doe</div>
+          <span class="db-user-menu-email">john.doe@mail.com</span>
+           <app-small-btn 
+            class="db-user-menu-small-btn"
+            icon="calendar_today" 
+            label="Set out of office"
+          />
+      </div>
+    </div>
+   
+    <mat-divider/>
+    <!-- Avatar area -->
+
+    <!-- First Profile Menu area -->
+    <ng-container *ngFor="let item of primaryUserMenu">
+      <ng-container *appHasPermission="item.requiredPermission ?? []">
+        <button mat-menu-item class="db-user-menu-item">
+          <mat-icon>{{ item.icon }}</mat-icon>
+          <span>{{ item.label }}</span>
+        </button>
+      </ng-container>
+    </ng-container>
+    <app-medium-btn class="mt-2 w-full" label="Add Seats"/>
+    <mat-divider/>
+    <!-- First Profile Menu area -->
+
+    <!-- Second Profile Menu area -->
+    <ng-container *ngFor="let item of secondaryUserMenu">
+      <ng-container *appHasPermission="item.requiredPermission ?? []">
+        <button mat-menu-item class="db-user-menu-item">
+          <mat-icon>{{ item.icon }}</mat-icon>
+          <span>{{ item.label }}</span>
+        </button>
+      </ng-container>
+    </ng-container>
+    <mat-divider/>
+    <!-- Second Profile Menu area -->
+
+    <!-- Footer Profile Menu area -->
+    <button mat-menu-item class="db-user-menu-item">
+      <mat-icon>logout</mat-icon>
+      <span>Logout</span>
+    </button>
+    <!-- Footer Profile Menu area -->
+
+ </div>
+</mat-menu>

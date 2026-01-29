@@ -1,0 +1,12 @@
+<mat-list class="db-projects-nav">
+   <ng-container *ngFor="let item of menuItems">
+      <ng-container *appHasPermission="item.requiredPermission ?? []">
+         <app-medium-btn 
+            btnStyle="text"
+            label="{{ item.label }}"
+            icon="{{ item.icon }}"
+            [routerLink]="item.route"
+         />
+      </ng-container>
+   </ng-container>
+</mat-list>

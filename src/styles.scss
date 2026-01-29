@@ -1,0 +1,24 @@
+@use '@angular/material' as mat;
+@import "tailwindcss";
+
+html, body {
+  margin: 0;
+  padding: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+a {
+  color: #0066cc;
+  text-decoration: none;
+  cursor: pointer;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.db-float-menu {
+  border-radius: 10px !important;
+  box-shadow: 3px 6px 20px #9090904f !important;
+}

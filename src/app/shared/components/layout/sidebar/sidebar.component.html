@@ -1,8 +1,50 @@
-<mat-sidenav mode="side" opened class="db-sidebar p-2" autosize>
-   <div class="w-full flex justify-end">
-        <button (click)="onToggleClick()" matIconButton aria-label="Example icon button with a vertical three dot icon">
-            <mat-icon>close</mat-icon>
-        </button>
+<div class="db-sidebar p-2 h-full justify-between flex flex-col">
+
+   <div>
+        <!--  --------- closing header --------- -->
+        <div class="w-full flex justify-end mb-1">
+            <app-icon-btn (click)="onToggleClick()" icon="close" btnStyle="text"/>
+        </div>
+        <mat-divider/>
+        <!--  --------- closing header --------- -->
+        
+        <!--  --------- primary navigation --------- -->
+        <app-sidebar-primary-nav/>
+        <mat-divider/>
+        <!--  --------- primary navigation --------- -->
    </div>
-    <app-sidebar-primary-nav/>
-</mat-sidenav>
+
+   <div class="flex flex-col w-full h-full">
+        <div class="flex w-full items-start pt-2">
+            <div class="flex w-full items-center justify-between">
+                <span class="px-2 font-bold" >Insights</span>
+                <app-icon-btn icon="add" btnStyle="text"/>
+            </div>
+        </div>
+        <app-sidebar-projects-nav/>
+        <span class="px-2 font-bold" >Starred</span>
+   </div>
+   
+
+    <!--  --------- sidebar footer --------- -->
+   <div>
+        <mat-divider/>
+        <div class="mt-3">
+            <app-primary-btn 
+                class="w-full"
+                label="Logout"
+                icon="logout"
+                (click)="onLogout()"
+            />
+        </div>
+        <div class="mt-2">
+            <app-secondary-btn 
+                btnStyle="outlined"
+                class="w-full"
+                label="Invite Friend"
+                icon="email"
+            />
+        </div>
+   </div>
+    <!--  --------- sidebar footer --------- -->
+</div>

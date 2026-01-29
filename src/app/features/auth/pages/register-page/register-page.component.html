@@ -1,1 +1,65 @@
-<p>register-page works!</p>
+<div class="login-page h-full flex justify-center items-center w-full bg-gray-200">
+  <div class="login-card bg-white px-5 sm:px-10 py-10 rounded-3xl">
+    <h1 class="text-xl w-full text-center mb-3">Register</h1>
+
+    <form
+      class="flex flex-col gap-3"
+      [formGroup]="form"
+      (ngSubmit)="onSubmit()"
+    >
+      <div class="min-w-50 md:min-w-80">
+
+        <app-input-field
+          class="w-full"
+          formControlName="name"
+          label="Full name"
+          type="text"
+          placeholder="John Doe"
+          [error]="getErrorMessage('name')">
+        </app-input-field>
+
+        <app-input-field
+          class="w-full"
+          formControlName="email"
+          label="Email"
+          type="email"
+          placeholder="your@email.com"
+          [error]="getErrorMessage('email')">
+        </app-input-field>
+
+        <app-input-field
+          class="w-full"
+          formControlName="password"
+          label="Password"
+          type="password"
+          placeholder="••••••••"
+          [error]="getErrorMessage('password')">
+        </app-input-field>
+
+        <app-input-field
+          class="w-full"
+          formControlName="confirmPassword"
+          label="Confirm password"
+          type="password"
+          placeholder="••••••••"
+          [error]="getErrorMessage('confirmPassword')">
+        </app-input-field>
+
+        <app-primary-btn
+          class="w-full"
+          label="Create account"
+          variant="primary"
+          [isDisabled]="form.invalid || isLoading"
+          [isLoading]="isLoading"
+          (buttonClick)="onSubmit()">
+        </app-primary-btn>
+
+      </div>
+    </form>
+
+    <p class="w-full text-center pt-5">
+      Already have an account?
+      <a routerLink="/auth/login">Login</a>
+    </p>
+  </div>
+</div>

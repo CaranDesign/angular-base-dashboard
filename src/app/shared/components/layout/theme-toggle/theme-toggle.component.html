@@ -1,0 +1,8 @@
+<button 
+  mat-icon-button 
+  (click)="toggleTheme()"
+  [attr.aria-label]="'Toggle ' + (currentTheme$ | async) + ' theme'">
+  <mat-icon>
+    {{ (currentTheme$ | async) === 'light' ? 'dark_mode' : 'light_mode' }}
+  </mat-icon>
+</button>
