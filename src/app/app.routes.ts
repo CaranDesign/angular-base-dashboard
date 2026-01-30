@@ -30,6 +30,12 @@ export const routes: Routes = [
             .then(m => m.DashboardModule)
       },
       {
+        path: 'project',
+        loadChildren: () =>
+          import('./features/dashboard/pages/dashboard-project/project.module')
+            .then(m => m.ProjectModule)
+      },
+      {
         path: 'admin',
         canActivate: [PermissionGuard],
         data: { permissions: ['admin:access'] },

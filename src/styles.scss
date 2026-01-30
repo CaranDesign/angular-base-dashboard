@@ -1,12 +1,73 @@
 @use '@angular/material' as mat;
 @import "tailwindcss";
 
+// all palettes allowed
+/* 
+ *   $red-palette
+ *   $green-palette
+ *   $blue-palette
+ *   $yellow-palette
+ *   $cyan-palette
+ *   $magenta-palette
+ *   $orange-palette
+ *   $chartreuse-palette
+ *   $spring-green-palette
+ *   $azure-palette
+ *   $violet-palette
+ *   $rose-palette 
+*/
+
+html {
+  color-scheme: light;
+  @include mat.theme((
+    color: mat.$orange-palette,
+    typography: Roboto,
+    density: 0
+  ));
+}
+
+body.dark-theme {
+  color-scheme: dark;
+}
+
+// ---- insert styles and override for light mode ------
+body {
+  color: var(--mat-sys-on-surface);
+   @include mat.theme-overrides((
+    background: #f8f8f8,
+    surface: #ffffff,
+  ));
+}
+
 html, body {
   margin: 0;
   padding: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
   transition: background-color 0.3s ease, color 0.3s ease;
+
+  .db-float-menu {
+    box-shadow: 3px 6px 20px #9090904f !important;
+  }
+
 }
+// ---- insert styles and override for light mode ------
+
+// ---- insert styles and override for dark mode ------
+body.dark-theme {
+  color-scheme: dark;
+  @include mat.theme-overrides((
+    background: #1c1c1c,
+    surface: #0a0a0a, 
+    on-surface: #ffffff,
+  ));
+
+  .db-float-menu {
+    box-shadow: 3px 6px 20px #1616164f !important;
+  }
+
+}
+// ---- insert styles and override for dark mode ------
+
 
 a {
   color: #0066cc;
@@ -20,5 +81,5 @@ a {
 
 .db-float-menu {
   border-radius: 10px !important;
-  box-shadow: 3px 6px 20px #9090904f !important;
 }
+

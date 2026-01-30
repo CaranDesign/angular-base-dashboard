@@ -1,4 +1,15 @@
 <mat-list class="db-projects-nav">
+
+
+
+   <!-- insights project menu -->
+   <div class="flex w-full items-start pt-2">
+      <div class="flex w-full items-center justify-between">
+            <span class="px-2 font-bold" >Insights</span>
+            <app-icon-btn icon="add" btnStyle="text"/>
+      </div>
+   </div>
+
    <ng-container *ngFor="let item of menuItems">
       <ng-container *appHasPermission="item.requiredPermission ?? []">
          <app-medium-btn 
@@ -9,4 +20,35 @@
          />
       </ng-container>
    </ng-container>
+   <!-- insights project menu -->
+
+   <!-- starred project menu -->
+   <span class="px-2 font-bold" >Starred</span>
+
+   <ng-container *ngFor="let project of projList">
+      <ng-container *appHasPermission="project.requiredPermission ?? []">
+         <app-medium-btn 
+            btnStyle="text"
+            label="{{ project.title }}"
+            [routerLink]="['/project', project.slug, 'board']"
+         />
+      </ng-container>
+   </ng-container>
+   <!-- starred project menu -->
+
+
+   <!-- all projects project menu -->
+   <span class="px-2 font-bold" >All Projects</span>
+
+   <ng-container *ngFor="let project of projList">
+      <ng-container *appHasPermission="project.requiredPermission ?? []">
+         <app-medium-btn 
+            btnStyle="text"
+            label="{{ project.title }}"
+            [routerLink]="['/project', project.slug, 'board']"
+         />
+      </ng-container>
+   </ng-container>
+   <!-- all projects project menu -->
+
 </mat-list>

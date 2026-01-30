@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { SystemSettingsComponent } from './system-settings.component';
+import { ProjectToolbarComponent } from './project-toolbar.component';
 
-describe('SystemSettingsComponent', () => {
-  let component: SystemSettingsComponent;
-  let fixture: ComponentFixture<SystemSettingsComponent>;
+describe('ProjectToolbarComponent', () => {
+  let component: ProjectToolbarComponent;
+  let fixture: ComponentFixture<ProjectToolbarComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [SystemSettingsComponent]
+      imports: [ProjectToolbarComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(SystemSettingsComponent);
+    fixture = TestBed.createComponent(ProjectToolbarComponent);
     component = fixture.componentInstance;
     await fixture.whenStable();
   });
